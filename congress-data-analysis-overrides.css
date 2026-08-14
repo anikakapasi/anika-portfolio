@@ -1,0 +1,73 @@
+/* Final reading rhythm adjustments for the Congress project. */
+.feature-content {
+  font-size: 18px;
+}
+
+.feature-content > p {
+  margin-bottom: 2rem;
+}
+
+.feature-content ul {
+  margin-bottom: 2rem;
+}
+
+.finding,
+.finding-first,
+.finding-first + .finding {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.finding {
+  align-items: start;
+}
+
+/* Keep the two follow-up findings on one consistent reading rhythm. */
+.finding:not(.finding-first) > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.finding:not(.finding-first) > div p {
+  margin: 0;
+}
+
+/* Keep the narrative continuous while the first chart occupies the right column. */
+.finding-first + .finding > div {
+  margin-top: -8rem;
+}
+
+/* Offset the second visualization independently so the framed charts never touch. */
+.finding-first + .finding figure {
+  margin-top: 2rem;
+}
+
+.course-note {
+  width: 100%;
+  margin: 2rem 0 0 -12vw !important;
+  text-align: left;
+}
+
+@media (max-width: 850px) {
+  .finding-first + .finding > div {
+    margin-top: 0;
+  }
+
+  .finding-first + .finding figure {
+    margin-top: 2.5rem;
+  }
+
+  .course-note {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .back-link,
+  .project-return {
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+  }
+}

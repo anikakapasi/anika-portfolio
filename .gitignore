@@ -1,0 +1,4 @@
+.DS_Store
+.next/
+.vite/
+__pycache__/

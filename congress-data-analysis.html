@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A Look at Age, Tenure, and Power in the 118th Congress by Anika Kapasi." />
+  <title>A Look at Age, Tenure, and Power in the 118th Congress — Anika Kapasi</title>
+  <link rel="stylesheet" href="selected-works.css?v=20260813-tablet-cleanup" />
+  <link rel="stylesheet" href="congress-data-analysis.css" />
+  <link rel="stylesheet" href="congress-data-analysis-overrides.css?v=20260813-responsive" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Anika Kapasi home">AK</a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html#home">Home</a>
+      <a href="selected-works.html">Selected Works</a>
+      <a class="is-current" href="data-projects.html">Data Projects</a>
+    </nav>
+  </header>
+
+  <main class="project-feature">
+    <a class="back-link" href="data-projects.html">← Data-Driven Projects</a>
+    <header class="feature-header">
+      <h1>A Look at Age, Tenure, and Power in the 118th Congress</h1>
+    </header>
+
+    <article class="feature-content">
+      <p><strong>Purpose:</strong> To test whether specific features of a Congress member (age, tenure, party, and generation) predict whether they serve in the House or Senate using machine learning. Conduct further analysis on the dataset to produce audience-facing visuals that help clearly summarize what the numbers suggest and what they don’t.</p>
+
+      <p><strong>My Work (<a href="https://drive.google.com/file/d/1-5KDnHjxSPv-sjjvhtqpFP5xHmoeUhT2/view?usp=sharing" target="_blank" rel="noopener noreferrer"><em>full code here</em></a>):</strong></p>
+      <ul>
+        <li><strong>Data Cleaning:</strong> Narrowed the dataset to work with the 118th Congress only; Coded categorical variables (e.g., House=0, Senate=1), mapped generation categories, and dropped unneeded fields</li>
+        <li><strong>Machine Learning:</strong> Built a Random Forest classifier using party_code, cumulative congress tenure (cmltv_cong), age_years, and generation as features</li>
+        <li><strong>Improving Performance:</strong> Tuned parameters to improve performance (accuracy improved up to ~0.81)</li>
+        <li><strong>Data Visualization:</strong> Reported feature importance and created visuals</li>
+      </ul>
+
+      <section class="finding finding-first">
+        <div>
+          <p><strong>Findings:</strong> Age and tenure drove most of the accuracy in predicting chamber membership for the 118th Congress. Visually, the <strong>age-by-chamber histogram</strong> supports this as the Senate’s age profile is shifted older than the House, with fewer members in younger bins and a higher concentration in the 60–70+ age range. The visual reinforces that chamber differences align more with career stage/tenure than party identity.</p>
+        </div>
+        <figure><img src="public/congress-age-chamber.png" alt="Age Distribution by Chamber chart"></figure>
+      </section>
+
+      <section class="finding">
+        <div>
+          <p>This conclusion is also consistent with the Senate’s higher minimum age requirement and its reputation as the upper chamber, where members often have longer political careers. Party affiliation contributed little, which makes sense given that party isn’t deterministically tied to chamber membership and the Senate is nearly evenly split between the two parties.</p>
+          <p>Furthermore, the <strong>age-by-party boxplot</strong> disproves the common misconception that Democratic legislators are younger than Republican lawmakers—a belief often shaped by party branding and a handful of highly visible younger members. The boxplot suggests that party labels don’t reliably predict who is younger in Congress. While Democrats include the youngest individual member (≈26), the overall Democratic age distribution does not skew younger than Republicans in a meaningful way. In fact, Democrats’ median age is slightly higher (≈59 vs. ≈57 for Republicans). The two distributions also overlap heavily, indicating that many Democratic and Republican lawmakers fall in the same age ranges.</p>
+        </div>
+        <figure><img src="public/congress-age-party.png" alt="Distribution of Age (118th Congress) chart"></figure>
+      </section>
+
+      <p class="course-note"><em>Completed as part of Boston University DS110 (Introduction to Data Science with Python)</em></p>
+    </article>
+    <a class="project-return" href="data-projects.html">Back to Data-Driven Projects ↑</a>
+  </main>
+
+  <footer>
+    <p>ANIKA KAPASI</p>
+    <a href="index.html#home">Back to introduction ↑</a>
+  </footer>
+</body>
+</html>

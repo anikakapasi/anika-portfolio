@@ -1,0 +1,123 @@
+/* Shared project-card rhythm. */
+.data-intro .intro-accent {
+  transform: none;
+}
+
+.data-intro .intro-accent b {
+  transform: none;
+}
+
+.project-card::before {
+  display: none;
+}
+
+.project-card:nth-child(even)::before {
+  display: none;
+}
+
+.project-card {
+  /* One shared canvas leaves room for the longest title and footer. */
+  height: 660px;
+  min-width: 0;
+}
+
+.project-card > a {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.project-copy {
+  min-height: 0;
+}
+
+.project-footer span {
+  white-space: nowrap;
+}
+
+.project-description {
+  margin: 1.25rem 0 0;
+  font-size: 15px;
+}
+
+.project-copy h2 {
+  font-size: 30px;
+}
+
+.project-copy time {
+  margin: auto 0 0;
+}
+
+.project-footer {
+  min-height: 2.4rem;
+  margin-top: .65rem;
+}
+
+@media (max-width: 760px) {
+  .project-list,
+  .project-card {
+    min-width: 0;
+  }
+
+  .project-card > a,
+  .project-image,
+  .project-image img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-card > a {
+    height: auto;
+    min-height: 0;
+  }
+
+  .project-card {
+    height: auto;
+  }
+
+  .project-footer span {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 700px) {
+  .data-intro {
+    min-height:215px;
+    display:flex;
+    align-items:flex-end;
+    padding:2.75rem 0 1.75rem;
+  }
+
+  .data-intro h1 {
+    max-width:100%;
+    font-size:clamp(56px,15vw,64px);
+    line-height:.78;
+    letter-spacing:-.075em;
+  }
+
+  .data-intro h1 span {
+    display:block;
+    white-space:nowrap;
+  }
+
+  .data-intro .intro-accent {
+    top:1.75rem;
+    right:1vw;
+    left:auto;
+    width:54vw;
+    height:17vh;
+  }
+
+  .data-intro .intro-accent i {
+    inset:18% 0 0 14%;
+  }
+
+  .data-intro .intro-accent b {
+    inset:0 8% 14% 0;
+  }
+
+  .project-copy time {
+    margin:2rem 0 0;
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder one</title>
+  <desc id="desc">Editorial placeholder for a future personal photograph.</desc>
+  <rect width="800" height="1000" fill="#e9dcc5"/>
+  <rect x="72" y="82" width="656" height="836" fill="#dce5ed"/>
+  <rect x="118" y="128" width="564" height="744" fill="none" stroke="#743e2c" stroke-width="2"/>
+  <path d="M118 740h310" stroke="#667f9e" stroke-width="3"/>
+  <text x="118" y="815" fill="#743e2c" font-family="Arial, sans-serif" font-size="24" letter-spacing="6">PHOTO 01</text>
+</svg>

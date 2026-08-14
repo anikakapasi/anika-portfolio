@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected reporting by Anika Kapasi." />
+  <title>Selected Works — Anika Kapasi</title>
+  <link rel="stylesheet" href="selected-works.css?v=20260813-progressive-grid" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Anika Kapasi home">AK</a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html#home">Home</a>
+      <a class="is-current" href="selected-works.html">Selected Works</a>
+      <a href="data-projects.html">Data Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="works-intro">
+      <div class="intro-accent" aria-hidden="true"><i></i><b></b></div>
+      <h1>Selected Works</h1>
+    </header>
+
+    <section class="filters" aria-label="Filter selected works">
+      <div class="filter-group">
+        <div class="filter-options" id="story-filters" role="group" aria-label="Filter by story type"></div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-options" id="beat-filters" role="group" aria-label="Filter by beat"></div>
+      </div>
+      <div class="filter-status" aria-live="polite">
+        <span class="visually-hidden" id="result-count"></span>
+        <button id="reset-filters" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="article-grid" id="article-grid" aria-label="Articles"></section>
+    <div class="empty-state" id="empty-state" hidden>
+      <p>No stories match those filters.</p>
+      <button type="button">Clear filters</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="bylines">
+      <p>All Articles</p>
+      <div class="byline-links" aria-label="All article bylines">
+        <a href="https://dailyfreepress.com/staff_name/anika-kapasi/" target="_blank" rel="noopener noreferrer">The Daily Free Press</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://losgatan.com/author/anikakapasi/" target="_blank" rel="noopener noreferrer">Los Gatan</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.losaltosonline.com/search/?l=25&amp;sd=desc&amp;s=start_time&amp;f=html&amp;t=article%2Cvideo%2Cyoutube%2Ccollection&amp;q=anika+kapasi" target="_blank" rel="noopener noreferrer">Los Altos Town Crier</a>
+      </div>
+    </div>
+    <div class="footer-contact" aria-label="Contact Anika Kapasi">
+      <a class="contact-icon" href="https://www.linkedin.com/in/anika-kapasi/" target="_blank" rel="noopener noreferrer" aria-label="Anika Kapasi on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v6M8 7.4v.1M12 16v-3.2c0-1.8 1-2.8 2.5-2.8s2.5 1 2.5 3.2V16"/></svg>
+      </a>
+      <a class="contact-icon" href="mailto:anika.kapasi@gmail.com" aria-label="Email Anika Kapasi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7.5 8 5.8 8-5.8"/></svg>
+      </a>
+    </div>
+  </footer>
+  <script src="data/articles.js?v=20260813-2"></script>
+  <script src="selected-works.js?v=20260813-2"></script>
+</body>
+</html>

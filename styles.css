@@ -1,0 +1,970 @@
+:root{--white:#fbfaf6;--brown:#743e2c;--ink:#17253a;--blue:#667f9e;--pale:#dce5ed;--cream:#e9dcc5;--serif:"Times New Roman",Times,serif;--sans:Arial,Helvetica,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans)}
+a{color:inherit}
+.site-header{position:fixed;z-index:20;top:0;left:0;width:100%;height:68px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(116,62,44,.3);background:rgba(251,250,246,.92);backdrop-filter:blur(12px)}
+.brand{color:var(--brown);font:700 18px var(--serif);letter-spacing:.08em;text-decoration:none}
+.site-header nav{display:flex;gap:2.4rem}
+.site-header nav a{position:relative;text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:9px}
+.site-header nav a::after{content:"";position:absolute;left:0;bottom:-8px;width:100%;height:1px;background:var(--brown);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.site-header nav a:hover::after,.site-header nav a:focus-visible::after,.site-header nav a.is-current::after{transform:scaleX(1)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.hero{position:relative;min-height:100svh;padding-top:68px;overflow:hidden;background:var(--white)}
+.hero-copy{position:absolute;z-index:4;left:5.5vw;top:50%;width:43vw;text-align:left;transform:translateY(-50%)}
+.hero-copy h1{margin:0;color:var(--brown);font:clamp(104px,12.2vw,198px)/.62 var(--serif);font-weight:400;letter-spacing:-.035em}
+.hero-copy h1 span{display:block;opacity:0;transform:translateX(-55px);animation:slide-in .72s var(--ease) .12s forwards}
+.hero-copy h1 span+span{margin-top:.13em;animation-delay:.22s}
+.hero-rule{display:flex;justify-content:flex-start;margin:3.2rem 0 1.35rem}
+.hero-rule span{width:92%;height:3px;background:var(--brown);transform:scaleX(0);transform-origin:left;animation:draw .68s var(--ease) .42s forwards}
+.education{text-align:left;opacity:0;transform:translateX(-18px);animation:slide-in .5s var(--ease) .56s forwards}
+.school{margin:0;color:var(--brown);text-transform:uppercase;white-space:nowrap;font:19px/1.2 var(--serif);letter-spacing:.035em}
+.school i{display:inline-block;padding:0 .5em;color:var(--brown);font-size:1.18em;font-style:normal;line-height:0}
+.colleges{margin:.85rem 0 0;color:var(--blue);text-transform:uppercase;font-size:13px;line-height:1.7;letter-spacing:.11em}
+.hero-art{position:absolute;right:5vw;top:14%;width:48vw;height:72vh}
+.shape{position:absolute;display:block}
+.blue{inset:7% 8% 12% 6%;background:var(--blue);transform:translate(-65px,20px);opacity:0;animation:sweep .62s var(--ease) .42s forwards}
+.cream{width:51%;height:43%;left:0;top:-2%;background:var(--cream);transform:translate(-80px,-12px);opacity:0;animation:sweep .58s var(--ease) .3s forwards}
+.frame{inset:0 0 0 15%;border:1px solid var(--brown);transform:translateX(-70px);opacity:0;animation:sweep .65s var(--ease) .5s forwards}
+.portrait{position:absolute;z-index:2;inset:3% 4% 7% 10%;margin:0;overflow:hidden;opacity:0;transform:translateX(-45px);clip-path:inset(0 100% 0 0);animation:reveal .78s var(--ease) .61s forwards}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 72%;transform:translateX(10%) scale(1.22)}
+.works-link{position:absolute;z-index:5;left:5.5vw;bottom:28px;text-decoration:none;text-transform:uppercase;letter-spacing:.16em;font-size:9px}
+.works-link span{display:inline-block;margin-left:8px;animation:nudge 1.8s ease-in-out infinite}
+.works-link span{animation:lift 1.8s ease-in-out infinite}
+.about-section{position:relative;isolation:isolate;overflow:hidden;padding:10vh 7vw 12vh;background:var(--white);border-top:1px solid rgba(116,62,44,.35)}
+.about-decor span{position:absolute;z-index:-1;display:block;pointer-events:none}
+.about-blue-block{right:-4vw;top:16%;width:29vw;height:24vh;background:rgba(220,229,237,.72);transform:translateX(30px)}
+.about-outline{right:5vw;top:11%;width:25vw;height:27vh;border:1px solid var(--brown);transform:translateX(30px)}
+.about-line{left:4vw;top:36%;width:1px;height:42%;background:var(--brown);transform:scaleY(0);transform-origin:top}
+.about-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:3.5rem}
+.about-header h2{margin:0;color:var(--brown);font:italic 42px/1 "Bradley Hand","Segoe Print",cursive;font-weight:400;letter-spacing:-.04em}
+.about-header>span{display:block;width:120px;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:left}
+.about-label{margin:0;color:var(--blue);text-transform:uppercase;letter-spacing:.18em;font:10px/1.4 var(--sans)}
+.interests{display:grid;grid-template-columns:150px 1fr;align-items:baseline;margin:0 0 6rem 8vw}
+.interests>p:last-child{margin:0;color:var(--brown);font:25px/1.35 var(--serif)}
+.about-layout{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2.5vw;align-items:start}
+.biography{grid-column:2/span 6;max-width:720px;color:var(--ink);font:20px/1.68 var(--serif)}
+.biography>p{margin:0 0 2rem}
+.biography>p:first-child{color:var(--brown);font-size:25px;line-height:1.48}
+.biography .personality{position:relative;margin:4.5rem 0 0 2.5rem;padding:1.5rem 0 1.5rem 2rem;color:var(--brown);font-style:italic}
+.biography .personality::before{content:"";position:absolute;left:0;top:0;width:2px;height:100%;background:var(--blue)}
+.biography .personality::after{content:"";position:absolute;left:-2.5rem;top:-1.4rem;width:4.5rem;height:4.5rem;border:1px solid rgba(116,62,44,.55)}
+.currently{grid-column:9/span 4;position:relative;margin-top:9rem;padding:2rem 0 0 2rem;border-top:2px solid var(--brown)}
+.currently::before{content:"";position:absolute;z-index:-1;inset:1rem -5vw -2rem 34%;background:var(--pale)}
+.currently h3{margin-bottom:1.8rem}
+.currently p{margin:0;padding:1.25rem 0;border-bottom:1px solid rgba(116,62,44,.24);color:var(--brown);font:18px/1.45 var(--serif)}
+.currently em{color:var(--ink)}
+.words-in{position:relative;margin:9rem 0 0 8vw;padding:2.2rem 0 0;border-top:1px solid var(--brown)}
+.words-in::after{content:"";position:absolute;right:4%;top:-8px;width:21%;height:15px;border:1px solid var(--blue)}
+.words-in>.about-label{margin-bottom:1.3rem}
+.words-in>p:last-child{max-width:1020px;margin:0;color:var(--brown);font:clamp(22px,2.5vw,38px)/1.45 var(--serif)}
+.words-in i{padding:0 .25em;color:var(--blue);font-style:normal}
+.reveal-item{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.about-section.is-visible .reveal-item{opacity:1;transform:none}
+.about-section.is-visible .interests{transition-delay:.08s}
+.about-section.is-visible .biography{transition-delay:.16s}
+.about-section.is-visible .currently{transition-delay:.26s}
+.about-section.is-visible .words-in{transition-delay:.34s}
+.about-section.is-visible .about-header>span{animation:draw .6s var(--ease) .18s forwards}
+.about-section.is-visible .about-line{animation:draw-y .7s var(--ease) .25s forwards}
+.about-section.is-visible .about-blue-block,.about-section.is-visible .about-outline{animation:about-shape .65s var(--ease) .18s forwards}
+@keyframes slide-in{to{opacity:1;transform:translateX(0)}}
+@keyframes draw{to{transform:scaleX(1)}}
+@keyframes sweep{to{opacity:1;transform:translate(0,0)}}
+@keyframes reveal{to{opacity:1;transform:translateX(0);clip-path:inset(0)}}
+@keyframes nudge{50%{transform:translateY(5px)}}
+@keyframes lift{50%{transform:translateY(-4px)}}
+@keyframes draw-y{to{transform:scaleY(1)}}
+@keyframes about-shape{to{transform:translateX(0)}}
+@media(max-width:800px){
+  .site-header{height:58px;padding:0 6vw}
+  .site-header nav{gap:1rem}
+  .site-header nav a{font-size:8px;letter-spacing:.09em}
+  .hero{padding-top:58px}
+  .hero-art{right:3vw;top:9%;width:80vw;height:48vh}
+  .hero-copy{left:7vw;top:59%;width:86vw;transform:none}
+  .hero-copy h1{font-size:22vw;line-height:.62}
+  .hero-copy h1 span+span{margin-top:.14em}
+  .hero-rule{margin:2.1rem 0 .9rem}
+  .school{font-size:14px;white-space:normal}
+  .colleges{font-size:10px}
+  .works-link{display:none}
+  .about-section{padding:8vh 7vw 10vh}
+  .about-blue-block{right:-18vw;top:7%;width:58vw;height:18vh}
+  .about-outline{right:-8vw;top:5%;width:50vw;height:20vh}
+  .about-line{display:none!important}
+  .about-header{margin-bottom:2.5rem}
+  .about-header h2{font-size:36px}
+  .about-header>span{width:80px}
+  .interests{display:block;margin:0 0 4rem}
+  .interests>p:last-child{margin-top:.8rem;font-size:21px}
+  .about-layout{display:block}
+  .biography{max-width:none;font-size:18px;line-height:1.62}
+  .biography>p:first-child{font-size:22px}
+  .biography .personality{margin:3.5rem 0 0;padding-left:1.5rem}
+  .currently{margin:5rem 0 0;padding-left:0}
+  .currently::before{inset:1rem -7vw -2rem 45%}
+  .words-in{margin:6rem 0 0}
+  .words-in::after{right:0;width:28%}
+  .words-in>p:last-child{font-size:24px}
+}
+
+/* Refined single-line About heading */
+.about-header{min-height:0;margin:0 0 4.5rem;overflow:visible}
+.about-header h2{display:flex;align-items:baseline;gap:.16em;padding:.16em .08em .22em;margin:0;font-size:clamp(92px,12vw,174px);line-height:1;letter-spacing:-.055em}
+.about-header h2 span{display:inline-block;width:auto;margin:0!important;transform:none!important}
+@media(max-width:800px){
+  .about-header{min-height:0;margin-bottom:3.5rem}
+  .about-header h2{font-size:21vw;line-height:1.05;padding:.18em .06em .24em}
+}
+
+/* Final About layout refinements */
+.about-heading-row{display:block;margin-bottom:2.75rem}
+.about-heading-row .about-header{margin:0 0 .65rem}
+.about-heading-row .about-header h2{font-size:clamp(78px,7vw,108px)}
+.about-heading-row .interests{display:block;width:min(560px,100%);margin:0!important;padding:.7rem 0 .8rem 1.2rem!important;border:0!important;border-left:1px solid rgba(251,250,246,.72)!important;border-bottom:1px solid rgba(251,250,246,.72)!important}
+.about-heading-row .interests::before{display:none}
+.about-heading-row .interests>p:last-child{margin-top:.45rem}
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:19px!important;line-height:1.55!important}
+.about-meta-row{display:block;margin-top:3rem}
+.about-meta-row .currently,.about-meta-row .words-in{width:100%;max-width:none;margin:0 0 1.4rem!important;padding:0 0 1.2rem!important;border:0!important;border-bottom:1px solid rgba(251,250,246,.62)!important}
+.about-meta-row .currently{display:block}
+.about-meta-row .words-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .8rem}
+.about-meta-row .words-in>.about-label{flex:0 0 auto;margin:0 .7rem 0 0!important}
+.about-meta-row .words-in>p:not(.about-label){display:inline;margin:0!important;font-size:16px;line-height:1.4!important}
+.about-meta-row .words-in>p:not(.about-label)::before{display:none}
+.about-meta-row .words-in>p:not(.about-label)+p:not(.about-label)::before{content:"●";display:inline;padding-right:.8rem;color:var(--white);font-size:.45em;vertical-align:middle}
+@media(max-width:700px){
+  .about-heading-row .about-header h2{font-size:68px}
+  .biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:18px!important;line-height:1.58!important}
+  .about-meta-row .words-in{display:block}
+  .about-meta-row .words-in>p:not(.about-label){display:inline}
+}
+
+/* Desktop About carousel sizing */
+@media(min-width:701px){
+  .about-layout{align-items:start!important}
+  .about-carousel{
+    align-self:start!important;
+    justify-self:end;
+    width:min(600px,100%)!important;
+    height:530px;
+    margin-top:-1rem!important;
+    padding:22px 19px 0 0!important;
+  }
+  .about-carousel .carousel-photo{height:calc(100% - 48px)!important}
+}
+
+/* Final About hierarchy */
+.about-header{margin-bottom:2.5rem}
+.about-header h2{font-size:clamp(72px,8vw,120px)}
+.interests{gap:1.5rem;margin-bottom:4.5rem;padding:0;border:0}
+.interests::before{display:none}
+@media(max-width:800px){
+  .about-header{margin-bottom:2rem}
+  .about-header h2{font-size:17vw}
+  .interests{margin-bottom:3.5rem;padding:0}
+  .interests::before{display:none}
+}
+
+/* Tighter full-width biography */
+.biography{width:100%;max-width:none}
+.biography>p,.biography>p:first-child{margin-bottom:1.2rem}
+.biography .personality{margin-bottom:1.2rem}
+@media(max-width:800px){
+  .biography>p,.biography>p:first-child,.biography .personality{margin-bottom:1rem}
+}
+
+/* Unified About metadata rows */
+.currently,.words-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1.5rem;width:100%;max-width:none;margin:4.5rem 0 0;padding:0;border:0}
+.currently::before,.words-in::after{display:none}
+.currently h3,.words-in>.about-label{flex:0 0 auto;margin:0}
+.currently p{margin:0;padding:0;border:0;color:var(--white);font:italic 19px/1.5 var(--serif)}
+.currently p+p::before{content:"·";padding-right:1.5rem;color:var(--white);font-style:normal}
+.currently em{color:var(--white)}
+.words-in>p:last-child{margin:0;color:var(--white);font:italic 19px/1.5 var(--serif)}
+.words-in i{color:var(--white)}
+@media(max-width:800px){
+  .currently,.words-in{display:block;margin-top:3.5rem}
+  .currently h3,.words-in>.about-label{margin-bottom:.75rem}
+  .currently p{display:block;margin-bottom:.55rem;font-size:17px}
+  .currently p+p::before{display:none}
+  .words-in>p:last-child{font-size:18px;line-height:1.6}
+}
+
+/* Heading-free compact About section */
+.about-section{padding-top:3.25rem}
+.interests{margin-top:0;margin-bottom:2.75rem;padding:0;border:0!important}
+.interests::before{display:none!important}
+@media(max-width:800px){
+  .about-section{padding-top:2.5rem}
+  .interests{margin-bottom:2.25rem}
+}
+
+/* Compact top metadata and current roles */
+.about-section{padding-top:1rem!important}
+.interests{display:block;margin:0 0 2rem!important;padding:0!important}
+.interests>.about-label{display:block;margin:0 0 .35rem}
+.interests>p:last-child{margin:0;font-size:18px;line-height:1.35}
+.currently{display:block;margin:2.5rem 0 0;line-height:1.3}
+.currently h3{display:block;margin:0 0 .45rem}
+.currently p{display:block;margin:.12rem 0;padding:0;font-size:17px;line-height:1.35}
+.currently p::before,.currently p+p::before{content:"·";display:inline-block;width:1.25rem;padding:0;color:var(--white);font-style:normal}
+@media(max-width:800px){
+  .about-section{padding-top:.75rem!important}
+  .interests{margin-bottom:1.75rem!important}
+  .currently{margin-top:2rem}
+  .currently p{margin:.1rem 0;font-size:16px}
+}
+
+/* Full-width About body copy */
+.about-section{padding-left:2vw;padding-right:2vw}
+.about-layout,.biography,.biography>p{width:100%;max-width:none}
+.biography>p{text-align:justify;text-align-last:left}
+@media(max-width:800px){
+  .about-section{padding-left:5vw;padding-right:5vw}
+  .biography>p{text-align:left}
+}
+
+/* Final About typography and spacing refinements */
+.about-section{padding-top:2rem!important}
+.interests{display:block!important;margin-bottom:2rem!important}
+.interests>.about-label{display:block;margin-bottom:.4rem}
+.interests>p:last-child{display:block;margin:0}
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-family:Georgia,"Times New Roman",serif}
+.currently{margin-top:2rem!important}
+.currently h3{margin-bottom:.3rem!important}
+.currently p{display:flex!important;align-items:baseline;margin:0!important;padding:0!important;line-height:1.12!important;font-family:Georgia,"Times New Roman",serif}
+.currently p::before,.currently p+p::before{flex:0 0 1.1rem;width:1.1rem}
+@media(max-width:800px){
+  .about-section{padding-top:1.5rem!important}
+  .currently p{line-height:1.18!important}
+}
+
+/* Restored About heading and reopened metadata spacing */
+.about-section{padding-top:4rem!important}
+.about-header{margin-bottom:2.25rem}
+.about-header h2{font-size:clamp(72px,8vw,120px)}
+.interests>p:last-child{width:max-content;max-width:100%;padding-bottom:.55rem;border-bottom:1px solid rgba(251,250,246,.75)}
+.currently p{margin:.45rem 0!important;line-height:1.35!important}
+@media(max-width:800px){
+  .about-section{padding-top:3rem!important}
+  .about-header{margin-bottom:1.75rem}
+  .about-header h2{font-size:17vw}
+  .currently p{margin:.35rem 0!important;line-height:1.32!important}
+}
+
+/* Final About order and publication list */
+.about-header{margin:1.75rem 0 2rem}
+.about-header h2{font-size:clamp(54px,5vw,78px)}
+.words-in{display:block;margin:2.5rem 0 0;padding:1.5rem 0 0;border-top:1px solid rgba(251,250,246,.55)}
+.words-in>.about-label{display:block;margin:0 0 .3rem}
+.words-in>p:not(.about-label){display:flex;align-items:baseline;margin:.45rem 0;color:var(--white);font:italic 17px/1.35 Georgia,"Times New Roman",serif}
+.words-in>p:not(.about-label)::before{content:"·";flex:0 0 1.1rem;width:1.1rem;color:var(--white);font-style:normal}
+@media(max-width:800px){
+  .about-header{margin:1.5rem 0 1.75rem}
+  .about-header h2{font-size:13vw}
+  .words-in{margin-top:2rem;padding-top:1.25rem}
+  .words-in>p:not(.about-label){margin:.35rem 0;font-size:16px}
+}
+
+/* Editorial About photo carousel */
+.about-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(300px,2fr);column-gap:5vw;align-items:start}
+.biography{grid-column:1;grid-row:1;width:100%}
+.about-carousel{grid-column:2;grid-row:1;position:relative;min-width:0;margin:1rem 0 0;padding:1.4rem 1.2rem 1rem 0}
+.carousel-art span{position:absolute;z-index:-1;display:block;pointer-events:none;transition:transform .4s var(--ease)}
+.carousel-blue{inset:8% -1.5rem 11% 12%;background:var(--pale)}
+.carousel-frame{inset:0 0 16% 7%;border:1px solid var(--brown)}
+.carousel-line{right:-2.5rem;bottom:9%;width:48%;height:2px;background:var(--brown)}
+.carousel-photo{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--cream);transform:rotate(-.35deg)}
+.carousel-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 65%;will-change:opacity,transform;transform:scale(var(--photo-scale,1));transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
+.carousel-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:4rem 1.25rem 1.2rem;background:linear-gradient(transparent,rgba(23,37,58,.9));color:var(--white);font:italic 15px/1.45 Georgia,"Times New Roman",serif;opacity:0;transform:translateY(8px);transition:opacity .32s var(--ease),transform .32s var(--ease)}
+.carousel-photo:hover img,.carousel-photo:focus img{transform:scale(1.015);filter:brightness(.82)}
+.carousel-photo:hover figcaption,.carousel-photo:focus figcaption{opacity:1;transform:none}
+.about-carousel:has(.carousel-photo:hover) .carousel-blue,.about-carousel:has(.carousel-photo:focus) .carousel-blue{transform:translate(4px,3px)}
+.carousel-touch-caption{display:none;margin:.9rem 0 0;color:var(--white);font:italic 14px/1.45 Georgia,"Times New Roman",serif}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;color:var(--white)}
+.carousel-controls button{padding:.2rem .75rem .25rem 0;border:0;background:none;color:var(--white);cursor:pointer;font:20px/1 var(--serif)}
+.carousel-controls button:disabled{cursor:default;opacity:.3}
+.carousel-controls button:focus-visible{outline:1px solid var(--white);outline-offset:4px}
+.carousel-count{text-transform:uppercase;letter-spacing:.15em;font-size:9px}
+.carousel-photo.is-leaving img{opacity:0;transform:translateX(calc(var(--swipe-direction,1) * -13%)) scale(var(--photo-scale,1.02))}
+.carousel-photo.is-entering img{opacity:0;transform:translateX(calc(var(--swipe-direction,1) * 13%)) scale(var(--photo-scale,1.02))}
+.currently{grid-column:1;grid-row:2}
+.words-in{grid-column:1/-1}
+@media(max-width:900px){
+  .about-layout{grid-template-columns:minmax(0,1.35fr) minmax(260px,.85fr);column-gap:4vw}
+}
+@media(max-width:700px){
+  .about-layout{display:flex;flex-direction:column}
+  .biography{order:1}
+  .about-carousel{order:2;width:96%;margin:2.5rem auto 0;padding-right:.8rem}
+  .currently{order:3;width:100%}
+  .carousel-photo{aspect-ratio:4/5}
+  .carousel-photo figcaption{display:none}
+  .carousel-touch-caption{display:block}
+  .carousel-line{right:-1rem}
+}
+
+/* Hero-scale About carousel */
+@media(min-width:701px){
+  .about-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:4vw!important;align-items:start}
+  .biography{grid-column:1!important;grid-row:1!important;min-width:0}
+  .about-carousel{grid-column:2!important;grid-row:1!important;width:100%;max-width:none;margin:0;padding:1.4rem 1.2rem 1rem 0}
+  .carousel-photo{width:100%;height:min(66vh,720px);aspect-ratio:auto}
+  .currently{grid-column:1!important;grid-row:2!important}
+}
+
+/* Compact About heading row and literary body type */
+.about-heading-row{display:grid;grid-template-columns:auto minmax(320px,560px);align-items:center;justify-content:space-between;gap:3rem;margin:0 0 2.75rem}
+.about-heading-row .about-header{margin:0}
+.about-heading-row .about-header h2{font-size:clamp(36px,3.4vw,52px);line-height:1.1;padding:.12em .06em .18em}
+.about-heading-row .interests{width:100%;margin:0!important;padding:1rem 1.25rem!important;border:1px solid rgba(251,250,246,.58)!important}
+.about-heading-row .interests>p:last-child{width:auto;padding:0;border:0;font-size:16px}
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-family:Baskerville,"Iowan Old Style","Palatino Linotype",Garamond,serif;font-size:16px;line-height:1.62}
+.biography>p{text-align:left;text-align-last:auto}
+@media(max-width:700px){
+  .about-heading-row{display:block;margin-bottom:2rem}
+  .about-heading-row .about-header{margin-bottom:1rem}
+  .about-heading-row .about-header h2{font-size:46px}
+  .about-heading-row .interests{padding:.85rem 1rem!important}
+  .biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:16px;line-height:1.6}
+}
+
+/* Balanced About heading and paired metadata boxes */
+.about-heading-row .about-header h2{font-size:clamp(64px,5.5vw,86px)}
+.biography>p,.biography>p:first-child,.biography .personality{font-size:16px!important;line-height:1.62!important}
+.about-meta-row{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:3rem}
+.about-meta-row .currently,.about-meta-row .words-in{display:block;width:100%;max-width:none;margin:0!important;padding:1.15rem 1.25rem!important;border:1px solid rgba(251,250,246,.58)!important}
+.about-meta-row .currently h3,.about-meta-row .words-in>.about-label{margin:0 0 .35rem!important}
+.about-meta-row .currently p,.about-meta-row .words-in>p:not(.about-label){margin:.35rem 0!important;font-size:16px;line-height:1.3!important}
+@media(max-width:700px){
+  .about-heading-row .about-header h2{font-size:58px}
+  .about-meta-row{grid-template-columns:1fr;gap:1rem;margin-top:2rem}
+}
+
+@media(min-width:701px){
+  .about-layout{align-items:center!important}
+  .biography{align-self:center}
+  .about-carousel{align-self:center}
+}
+
+/* Refined About hierarchy and open metadata rules */
+.about-heading-row{display:block;margin-bottom:2.75rem}
+.about-heading-row .about-header{margin:0 0 .65rem}
+.about-heading-row .about-header h2{font-size:clamp(78px,7vw,108px)}
+.about-heading-row .interests{width:min(560px,100%);margin:0!important;padding:.7rem 0 .8rem 1.2rem!important;border:0!important;border-left:1px solid rgba(251,250,246,.72)!important;border-bottom:1px solid rgba(251,250,246,.72)!important}
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:19px!important;line-height:1.55!important}
+.about-meta-row{display:block;margin-top:3rem}
+.about-meta-row .currently,.about-meta-row .words-in{width:100%;margin:0 0 1.4rem!important;padding:0 0 1.2rem!important;border:0!important;border-bottom:1px solid rgba(251,250,246,.62)!important}
+.about-meta-row .currently{display:block}
+.about-meta-row .words-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .8rem}
+.about-meta-row .words-in>.about-label{flex:0 0 auto;margin:0 .7rem 0 0!important}
+.about-meta-row .words-in>p:not(.about-label){display:inline;margin:0!important;font-size:16px;line-height:1.4!important}
+.about-meta-row .words-in>p:not(.about-label)::before{display:none}
+.about-meta-row .words-in>p:not(.about-label)+p:not(.about-label)::before{content:"●";display:inline;padding-right:.8rem;color:var(--white);font-size:.45em;vertical-align:middle}
+@media(max-width:700px){
+  .about-heading-row .about-header h2{font-size:68px}
+  .biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:18px!important;line-height:1.58!important}
+  .about-meta-row .words-in{display:block}
+  .about-meta-row .words-in>p:not(.about-label){display:inline}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;animation-iteration-count:1!important}
+  .reveal-item{opacity:1;transform:none;transition:none}
+}
+
+/* Simplified About section */
+.about-section{padding:11vh max(7vw,calc((100vw - 820px)/2)) 13vh;background:var(--ink);color:var(--white);border-top:0}
+.about-decor{display:none}
+.about-header{display:block;min-height:430px;margin:-2vh -4vw 4rem;overflow:hidden}
+.about-header h2{margin:0;color:var(--white);font:400 clamp(150px,20vw,300px)/.56 "Snell Roundhand","URW Chancery L","Apple Chancery",cursive;letter-spacing:-.075em}
+.about-header h2 span{display:block;width:max-content}
+.about-header h2 span:first-child{transform:translateX(-.08em) rotate(-2deg)}
+.about-header h2 span:last-child{margin:-.04em 0 0 38%;transform:rotate(2deg)}
+.about-header>span{display:none}
+.about-label{color:var(--white)}
+.interests{display:block;margin:0 0 4.5rem}
+.interests>p:last-child{margin:.8rem 0 0;color:var(--white);font:24px/1.45 var(--serif)}
+.about-layout{display:block}
+.biography{max-width:760px;color:var(--white);font:20px/1.72 var(--serif)}
+.biography>p,.biography>p:first-child{margin:0 0 2.25rem;color:var(--white);font-size:20px;line-height:1.72}
+.biography .personality{margin:0 0 2.25rem;padding:0;color:var(--white);font-style:normal}
+.biography .personality::before,.biography .personality::after{display:none}
+.currently{max-width:760px;margin:5rem 0 0;padding:2rem 0 0;border-top:1px solid rgba(251,250,246,.55)}
+.currently::before{display:none}
+.currently h3{margin-bottom:1.5rem}
+.currently p{padding:0;margin:0 0 1rem;border:0;color:var(--white);font:18px/1.55 var(--serif)}
+.currently em{color:var(--white)}
+.words-in{max-width:760px;margin:5rem 0 0;padding:2rem 0 0;border-top:1px solid rgba(251,250,246,.55)}
+.words-in::after{display:none}
+.words-in>p:last-child{margin:1rem 0 0;color:var(--white);font:22px/1.65 var(--serif)}
+.words-in i{color:var(--white)}
+@media(max-width:800px){
+  .about-section{padding:9vh 7vw 11vh}
+  .about-header{min-height:235px;margin:-1vh -4vw 3rem}
+  .about-header h2{font-size:31vw;line-height:.58}
+  .about-header h2 span:last-child{margin-left:42%}
+  .interests{margin-bottom:3.5rem}
+  .interests>p:last-child{font-size:20px}
+  .biography,.biography>p,.biography>p:first-child{font-size:18px;line-height:1.65}
+  .currently,.words-in{margin-top:4rem}
+  .words-in>p:last-child{font-size:20px}
+}
+
+/* About alignment and editorial interest rail */
+.about-section{padding-left:5.5vw;padding-right:5.5vw}
+.interests{display:flex;align-items:center;gap:2rem;width:100%;margin:0 0 4.5rem;padding:1.15rem 0;border-top:1px solid rgba(251,250,246,.5);border-bottom:1px solid rgba(251,250,246,.5)}
+.interests::before{content:"";display:block;width:32px;height:3px;background:var(--blue)}
+.interests>.about-label{flex:0 0 auto}
+.interests>p:last-child{margin:0;color:var(--white);font:italic 19px/1.4 var(--serif)}
+.about-header{margin-left:0;margin-right:0}
+.biography{max-width:1050px;font-size:18px}
+.biography>p,.biography>p:first-child{font-size:18px;line-height:1.72}
+.currently,.words-in{max-width:1050px}
+@media(max-width:800px){
+  .about-section{padding-left:7vw;padding-right:7vw}
+  .interests{display:block;margin-bottom:3.5rem;padding:1rem 0}
+  .interests::before{margin-bottom:1rem}
+  .interests>p:last-child{margin-top:.7rem;font-size:18px}
+  .biography,.biography>p,.biography>p:first-child{font-size:17px;line-height:1.68}
+}
+
+/* Final single-line About heading treatment */
+.about-header{min-height:0;margin:0 0 4.5rem;overflow:visible}
+.about-header h2{display:flex;align-items:baseline;gap:.16em;padding:.16em .08em .22em;margin:0;font-size:clamp(92px,12vw,174px);line-height:1;letter-spacing:-.055em}
+.about-header h2 span{display:inline-block;width:auto;margin:0!important;transform:none!important}
+@media(max-width:800px){
+  .about-header{min-height:0;margin-bottom:3.5rem}
+  .about-header h2{font-size:21vw;line-height:1.05;padding:.18em .06em .24em}
+}
+
+/* Final About layout refinements — keep last in cascade */
+.about-heading-row{display:block;margin-bottom:2.75rem}
+.about-heading-row .about-header{margin:0 0 .65rem}
+.about-heading-row .about-header h2{font-size:clamp(78px,7vw,108px)}
+.about-heading-row .interests{display:block;width:min(560px,100%);margin:0!important;padding:.7rem 0 .8rem 1.2rem!important;border:0!important;border-left:1px solid rgba(251,250,246,.72)!important;border-bottom:1px solid rgba(251,250,246,.72)!important}
+.about-heading-row .interests::before{display:none}
+.about-heading-row .interests>p:last-child{margin-top:.45rem}
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:19px!important;line-height:1.55!important}
+.about-meta-row{display:block;margin-top:3rem}
+.about-meta-row .currently,.about-meta-row .words-in{width:100%;max-width:none;margin:0 0 1.4rem!important;padding:0 0 1.2rem!important;border:0!important;border-bottom:1px solid rgba(251,250,246,.62)!important}
+.about-meta-row .currently{display:block}
+.about-meta-row .words-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .8rem}
+.about-meta-row .words-in>.about-label{flex:0 0 auto;margin:0 .7rem 0 0!important}
+.about-meta-row .words-in>p:not(.about-label){display:inline;margin:0!important;font-size:16px;line-height:1.4!important}
+.about-meta-row .words-in>p:not(.about-label)::before{display:none}
+.about-meta-row .words-in>p:not(.about-label)+p:not(.about-label)::before{content:"●";display:inline;padding-right:.8rem;color:var(--white);font-size:.45em;vertical-align:middle}
+@media(max-width:700px){
+  .about-heading-row .about-header h2{font-size:68px}
+  .biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:18px!important;line-height:1.58!important}
+  .about-meta-row .words-in{display:block}
+  .about-meta-row .words-in>p:not(.about-label){display:inline}
+}
+
+/* Desktop About carousel sizing — keep after About overrides */
+@media(min-width:701px){
+  .about-layout{align-items:start!important}
+  .about-carousel{align-self:start!important;justify-self:end;width:min(600px,100%)!important;height:450px;margin-top:-1rem!important;padding:22px 19px 0 0!important}
+  .about-carousel .carousel-photo{height:calc(100% - 48px)!important}
+}
+
+/* Vertical About title rail */
+@media(min-width:901px){
+  .about-section{
+    display:grid;
+    grid-template-columns:170px minmax(0,1fr);
+    column-gap:4vw;
+    padding-top:9rem;
+  }
+  .about-heading-row{
+    position:relative;
+    grid-column:1;
+    grid-row:1 / span 2;
+    min-height:760px;
+    margin:0;
+    padding:0;
+    border-right:1px solid rgba(251,250,246,.82);
+    overflow:visible;
+  }
+  .about-heading-row::before,.about-heading-row::after{display:none}
+  .about-heading-row .about-header{
+    position:sticky;
+    top:9rem;
+    width:150px;
+    height:520px;
+    margin:0;
+    overflow:visible;
+  }
+  .about-heading-row .about-header h2{
+    position:absolute;
+    left:50%;
+    top:50%;
+    display:flex;
+    align-items:baseline;
+    gap:.16em;
+    width:max-content;
+    max-width:none;
+    min-height:0;
+    margin:0;
+    padding:.1em;
+    color:var(--white);
+    font:400 104px/1 "Snell Roundhand","URW Chancery L","Apple Chancery",cursive;
+    letter-spacing:-.065em;
+    transform:translate(-50%,-50%) rotate(-90deg);
+    transform-origin:center;
+  }
+  .about-heading-row .about-header h2 span{
+    position:static;
+    display:inline-block;
+    margin:0!important;
+    color:inherit;
+    font:inherit;
+    letter-spacing:inherit;
+    transform:none!important;
+  }
+  .about-layout{grid-column:2;grid-row:1;margin:0}
+  .about-meta-row{grid-column:2;grid-row:2}
+}
+@media(max-width:900px){
+  .about-section{display:block;padding-top:6rem}
+  .about-heading-row{margin:0 0 2.75rem;padding:0;border:0}
+  .about-heading-row .about-header{margin:0}
+  .about-heading-row .about-header h2{
+    display:flex;
+    align-items:baseline;
+    gap:.16em;
+    width:max-content;
+    max-width:100%;
+    min-height:0;
+    margin:0;
+    padding:.1em;
+    color:var(--white);
+    font:400 clamp(64px,16vw,90px)/1 "Snell Roundhand","URW Chancery L","Apple Chancery",cursive;
+    letter-spacing:-.065em;
+  }
+  .about-heading-row .about-header h2 span{position:static;display:inline-block;margin:0!important;color:inherit;font:inherit;transform:none!important}
+}
+
+/* Sketch-based three-column About composition */
+.about-section{display:block;padding-top:8rem}
+.about-heading-row{min-height:0;margin:0 0 2.5rem;padding:0;border:0}
+.about-heading-row .about-header{position:static;width:auto;height:auto;margin:0;overflow:visible}
+.about-heading-row .about-header h2{
+  position:static;
+  display:flex;
+  align-items:baseline;
+  gap:.16em;
+  width:max-content;
+  max-width:100%;
+  min-height:0;
+  margin:0;
+  padding:.08em .06em .16em;
+  color:var(--white);
+  font:400 clamp(78px,7vw,108px)/1 "Snell Roundhand","URW Chancery L","Apple Chancery",cursive;
+  letter-spacing:-.065em;
+  transform:none;
+}
+.about-heading-row .about-header h2 span{position:static;display:inline-block;margin:0!important;color:inherit;font:inherit;transform:none!important}
+.about-layout{
+  display:grid!important;
+  grid-template-columns:minmax(210px,.72fr) minmax(340px,1.35fr) minmax(360px,1.15fr)!important;
+  gap:2.25vw!important;
+  align-items:start!important;
+}
+.about-panels{grid-column:1;display:grid;gap:1rem;align-self:start}
+.about-panel{position:relative;padding:1.25rem 1.2rem 1.35rem;border:1px solid var(--brown)}
+.about-panel h3{margin:0 0 .75rem;color:var(--brown);text-transform:uppercase;letter-spacing:.17em;font:10px/1.3 var(--sans)}
+.about-panel p{margin:.45rem 0;color:var(--ink);font:15px/1.42 var(--serif)}
+.about-panel-interests{background:var(--pale);transform:translateX(.7rem)}
+.about-panel-currently{background:var(--cream);transform:translateX(-.35rem)}
+.about-panel-publications{background:var(--white);transform:translateX(.35rem)}
+.about-panel::after{content:"";position:absolute;right:-7px;bottom:-7px;width:34%;height:7px;border-right:1px solid var(--blue);border-bottom:1px solid var(--blue)}
+.about-layout .biography{grid-column:2!important;grid-row:1!important;align-self:start;width:100%;max-width:none}
+.about-layout .about-carousel{grid-column:3!important;grid-row:1!important;align-self:start!important;justify-self:end;width:100%!important;max-width:500px;height:450px;margin:0!important;padding:22px 19px 0 0!important}
+.about-layout .about-carousel .carousel-photo{height:calc(100% - 48px)!important}
+@media(max-width:1100px){
+  .about-layout{grid-template-columns:minmax(0,1fr) minmax(320px,.9fr)!important}
+  .about-panels{grid-column:1/-1;grid-row:1;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:1rem}
+  .about-layout .biography{grid-column:1!important;grid-row:2!important}
+  .about-layout .about-carousel{grid-column:2!important;grid-row:2!important}
+}
+@media(max-width:700px){
+  .about-section{padding-top:5rem}
+  .about-layout{display:flex!important;flex-direction:column;gap:2rem!important}
+  .about-panels{order:1;display:grid;grid-template-columns:1fr;width:100%}
+  .about-panel{transform:none}
+  .about-layout .biography{order:2}
+  .about-layout .about-carousel{order:3;width:96%!important;height:auto;margin:0 auto!important}
+  .about-layout .about-carousel .carousel-photo{height:auto!important;aspect-ratio:4/5}
+}
+
+/* Aligned card rail with bottom-right About signature */
+.about-section{display:flex;flex-direction:column}
+.about-layout{order:1;width:100%}
+.about-heading-row{
+  order:2;
+  align-self:flex-end;
+  width:max-content;
+  max-width:100%;
+  margin:2.25rem 0 0;
+  padding:0;
+}
+.about-heading-row .about-header h2{justify-content:flex-end;font-size:clamp(76px,7vw,106px);text-align:right}
+.about-panels{position:relative;padding-left:18px}
+.about-panels::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:3px;
+  width:1px;
+  background:rgba(251,250,246,.78);
+}
+.about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{
+  width:100%;
+  margin:0;
+  transform:none;
+}
+@media(max-width:1100px){
+  .about-panels{padding:18px 0 0}
+  .about-panels::before{top:3px;right:0;bottom:auto;left:0;width:auto;height:1px}
+}
+@media(max-width:700px){
+  .about-panels{padding:0 0 0 18px}
+  .about-panels::before{top:0;right:auto;bottom:0;left:3px;width:1px;height:auto}
+  .about-heading-row{margin-top:1rem}
+  .about-heading-row .about-header h2{font-size:clamp(60px,15vw,84px)}
+}
+
+/* About sizing and card-rail placement */
+.biography,.biography>p,.biography>p:first-child,.biography .personality{font-size:18px!important}
+@media(min-width:1101px){
+  .about-panels{padding-right:18px;padding-left:0}
+  .about-panels::before{right:3px;left:auto}
+}
+@media(max-width:700px){
+  .about-panels{padding-right:18px;padding-left:0}
+  .about-panels::before{right:3px;left:auto}
+}
+
+/* Unified About highlights card */
+.about-panels{
+  position:relative;
+  display:block;
+  padding:0!important;
+  border:1px solid var(--brown);
+  background:var(--cream);
+  box-shadow:10px 10px 0 var(--pale);
+}
+.about-panels::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:1rem;
+  right:-1px;
+  bottom:1rem;
+  left:auto;
+  width:3px;
+  height:auto;
+  background:var(--blue);
+}
+.about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{
+  position:relative;
+  width:100%;
+  margin:0;
+  padding:1.35rem 1.3rem 1.45rem;
+  border:0;
+  border-bottom:1px solid rgba(116,62,44,.42);
+  background:transparent;
+  transform:none;
+}
+.about-panel:last-child{border-bottom:0}
+.about-panel::after{display:none}
+.about-panel h3{display:flex;align-items:center;gap:.65rem;margin-bottom:.8rem}
+.about-panel h3::before{content:"";width:18px;height:2px;background:var(--blue)}
+.about-panel p{font-size:15px;line-height:1.48}
+@media(max-width:1100px){
+  .about-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));box-shadow:8px 8px 0 var(--pale)}
+  .about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{border-right:1px solid rgba(116,62,44,.42);border-bottom:0}
+  .about-panel:last-child{border-right:0}
+  .about-panels::before{top:auto;right:1rem;bottom:-1px;left:1rem;width:auto;height:3px}
+}
+@media(max-width:700px){
+  .about-panels{display:block}
+  .about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{border-right:0;border-bottom:1px solid rgba(116,62,44,.42)}
+  .about-panel:last-child{border-bottom:0}
+  .about-panels::before{top:1rem;right:-1px;bottom:1rem;left:auto;width:3px;height:auto}
+}
+
+/* Final About hierarchy: heading, story/photo, highlights row */
+.about-section{display:block;padding-top:7rem}
+.about-heading-row{
+  display:block;
+  width:100%;
+  max-width:none;
+  margin:0 0 2rem;
+  padding:0;
+}
+.about-heading-row .about-header{position:static;width:auto;height:auto;margin:0;overflow:visible}
+.about-heading-row .about-header h2{
+  position:static;
+  display:flex;
+  justify-content:flex-start;
+  align-items:baseline;
+  gap:.16em;
+  width:max-content;
+  max-width:100%;
+  min-height:0;
+  margin:0;
+  padding:.08em .06em .16em;
+  color:var(--white);
+  text-align:left;
+  font:400 clamp(78px,7vw,108px)/1 "Snell Roundhand","URW Chancery L","Apple Chancery",cursive;
+  letter-spacing:-.065em;
+  transform:none;
+}
+.about-heading-row .about-header h2 span{position:static;display:inline-block;margin:0!important;color:inherit;font:inherit;transform:none!important}
+.about-layout{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(380px,.95fr)!important;
+  gap:3.5vw!important;
+  align-items:center!important;
+  width:100%;
+}
+.about-layout .biography{grid-column:1!important;grid-row:1!important;align-self:center;width:100%;max-width:none}
+.about-layout .about-carousel{grid-column:2!important;grid-row:1!important;align-self:center!important;justify-self:center;width:min(520px,100%)!important;height:700px;margin:0!important}
+.about-panels{
+  grid-column:1/-1!important;
+  grid-row:2!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  width:100%;
+  margin-top:-2rem;
+}
+.about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{border-right:1px solid rgba(116,62,44,.42);border-bottom:0}
+.about-panel:last-child{border-right:0}
+.about-panels::before{top:auto;right:1rem;bottom:-1px;left:1rem;width:auto;height:3px}
+@media(max-width:800px){
+  .about-section{padding-top:5rem}
+  .about-heading-row{margin-bottom:1.5rem}
+  .about-heading-row .about-header h2{font-size:clamp(62px,15vw,88px)}
+  .about-layout{display:flex!important;flex-direction:column;align-items:stretch!important;gap:2rem!important}
+  .about-layout .biography{order:1}
+  .about-layout .about-carousel{order:2;align-self:center!important;width:min(520px,96%)!important;height:auto}
+  .about-panels{order:3;display:block!important;margin-top:.5rem}
+  .about-panel,.about-panel-interests,.about-panel-currently,.about-panel-publications{border-right:0;border-bottom:1px solid rgba(116,62,44,.42)}
+  .about-panel:last-child{border-bottom:0}
+  .about-panels::before{top:1rem;right:-1px;bottom:1rem;left:auto;width:3px;height:auto}
+}
+
+.biography .contact-note a{color:var(--cream);text-decoration-color:var(--blue);text-underline-offset:.22em}
+.biography .contact-note a:hover,.biography .contact-note a:focus-visible{color:var(--white)}
+
+/* Interests corner and open About metadata */
+.about-heading-row{position:relative;min-height:190px}
+.top-interests{
+  position:absolute;
+  top:1rem;
+  right:0;
+  width:min(470px,42vw);
+  padding:1.35rem 1.5rem 1.2rem 1.25rem;
+  border-top:1px solid var(--brown);
+  border-right:1px solid var(--brown);
+}
+.top-interests::before{content:"";position:absolute;left:-18px;bottom:-12px;width:72px;height:42px;background:rgba(220,229,237,.22);z-index:-1}
+.top-interests h3{margin:0 0 .7rem;color:var(--blue);text-transform:uppercase;letter-spacing:.18em;font:10px/1.2 var(--sans)}
+.top-interests p{margin:0;color:var(--cream);font:italic clamp(19px,1.7vw,25px)/1.35 var(--serif)}
+.about-panels{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  padding:0 0 1.35rem!important;
+  border:0;
+  border-bottom:1px solid rgba(251,250,246,.82);
+  background:transparent;
+  box-shadow:none;
+}
+.about-panels::before{display:none}
+.about-panel,.about-panel-currently,.about-panel-publications{
+  padding:1.2rem 2rem 1rem;
+  border:0;
+  background:transparent;
+}
+.about-panel-currently{border-right:1px solid rgba(251,250,246,.72)}
+.about-panel h3{color:var(--blue)}
+.about-panel p{color:var(--white);font-size:16px}
+.about-panel-publications h3 + p + h3{margin-top:1.7rem}
+@media(max-width:800px){
+  .about-heading-row{min-height:0;padding-bottom:1rem}
+  .top-interests{position:relative;top:auto;right:auto;width:100%;margin-top:.5rem}
+  .about-panels{display:block!important}
+  .about-panel,.about-panel-currently,.about-panel-publications{padding:1.2rem 0;border-right:0}
+  .about-panel-currently{border-bottom:1px solid rgba(251,250,246,.5)}
+}
+
+/* Refined Interests corner and metadata divider */
+.top-interests{
+  border-top:0;
+  border-right:0;
+  border-bottom:1px solid var(--brown);
+  border-left:1px solid var(--brown);
+}
+.top-interests::before{left:auto;right:-20px;top:-14px;bottom:auto;width:86px;height:48px}
+.top-interests p{color:var(--white);font:400 20px/1.5 var(--serif)}
+.about-panels{border-top:0;border-bottom:0}
+
+@media(min-width:801px){
+  .about-panel-currently{grid-column:2}
+  .about-panel-publications{grid-column:1;grid-row:1}
+  .about-panel-currently{border-right:0;border-left:1px solid rgba(251,250,246,.72)}
+}
+
+/* Connected About title and Interests tab */
+.about-heading-row{
+  position:relative;
+  min-height:172px;
+  margin-bottom:2.75rem;
+  overflow:visible;
+}
+.about-heading-row::before{display:none}
+.about-heading-row::after{
+  content:"";
+  display:block;
+  position:absolute;
+  z-index:4;
+  left:0;
+  top:96px;
+  width:72%;
+  height:2px;
+  background:var(--brown);
+}
+.about-heading-row .about-header{position:relative;z-index:5;width:58%}
+.top-interests{
+  position:absolute;
+  z-index:3;
+  top:2pc;
+  right:0;
+  width:43%;
+  min-height:138px;
+  padding:2.8rem 1.8rem 1.35rem;
+  border:0;
+  border-right:1px solid var(--brown);
+  border-bottom:1px solid var(--brown);
+  border-left:1px solid var(--brown);
+  background:var(--white);
+}
+.top-interests::before{display:none}
+.top-interests h3{color:var(--brown)}
+.top-interests p{color:var(--ink);font:400 20px/1.5 var(--serif)}
+@media(max-width:800px){
+  .about-heading-row{min-height:0;margin-bottom:2.25rem}
+  .about-heading-row::after{top:112px;width:100%}
+  .about-heading-row .about-header{width:100%}
+  .top-interests{position:relative;top:auto;right:auto;width:92%;min-height:0;margin:.5rem 0 0 auto;padding:1.5rem 1.25rem 1.1rem}
+}
+
+/* Reduce space above the About composition */
+.about-section{padding-top:2pc}
+@media(max-width:800px){.about-section{padding-top:2pc}}
+
+/* Clean About introduction */
+.about-section{padding-top:64px}
+.about-heading-row{min-height:0;margin:0 0 2rem}
+.about-heading-row::after{
+  top:0;
+  width:min(520px,48%);
+  height:2px;
+}
+.about-heading-row .about-header{
+  width:auto;
+  margin-top:1.6rem;
+}
+.about-heading-row .about-header h2{font-size:clamp(78px,7vw,108px)}
+.top-interests{display:none}
+@media(max-width:800px){
+  .about-section{padding-top:64px}
+  .about-heading-row::after{width:58%;top:0}
+  .about-heading-row .about-header{margin-top:1.2rem}
+}
+
+/* About title at the top edge */
+.about-section{padding-top:1pc}
+.about-heading-row{margin:0 0 2rem}
+.about-heading-row::after{display:none}
+.about-heading-row .about-header{position:static!important;width:auto!important;height:auto!important;margin-top:0}
+.about-heading-row .about-header h2{position:relative!important;left:auto!important;top:auto!important;transform:none!important;padding:0 .06em .16em}
+@media(max-width:800px){.about-section{padding-top:1pc}.about-heading-row .about-header{margin-top:0}}
+
+/* Align the desktop carousel with the About title */
+@media(min-width:801px){
+  .about-layout .biography{transform:translateY(-2rem)}
+  .about-layout .about-carousel{
+    align-self:center!important;
+    margin-top:calc(-1 * clamp(56px,5vw,78px))!important;
+  }
+  .about-panel-publications{padding-left:0}
+  .about-panel-currently{
+    width:100%;
+    justify-self:stretch;
+    padding-right:0;
+    text-align:left;
+  }
+}
+
+/* Narrow-screen composition and touch refinements. */
+@media (max-width: 700px) {
+  .site-header nav a {
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+  }
+
+  .hero-copy h1 span {
+    transform:translateY(12px);
+  }
+
+  .hero-rule span {
+    width:100%;
+  }
+
+  .about-section {
+    scroll-margin-top:58px;
+  }
+
+  .carousel-controls button {
+    min-width:44px;
+    min-height:44px;
+    padding:.5rem;
+  }
+
+  .carousel-controls {
+    margin-top:1.15rem;
+  }
+
+  .carousel-photo figcaption {
+    display:block;
+    opacity:1;
+    transform:none;
+    padding:3.25rem 1rem 1rem;
+  }
+
+  .carousel-touch-caption {
+    display:none;
+  }
+}
+
+/* Decorative carousel geometry is reserved for the desktop composition. */
+@media (max-width: 1100px) {
+  .about-carousel .carousel-art,
+  .about-carousel .carousel-blue,
+  .about-carousel .carousel-frame,
+  .about-carousel .carousel-line {
+    display:none !important;
+  }
+
+  /* Remove the room that was reserved for the desktop-only art layers. */
+  .about-layout .about-carousel {
+    padding:0 !important;
+  }
+}
