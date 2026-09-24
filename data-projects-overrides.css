@@ -46,7 +46,7 @@
 }
 
 .project-copy time {
-  margin: auto 0 0;
+  margin: .85rem 0 0;
 }
 
 .project-footer {
@@ -118,6 +118,6 @@
   }
 
   .project-copy time {
-    margin:2rem 0 0;
+    margin:.85rem 0 0;
   }
 }
