@@ -21,7 +21,7 @@ const articleImages = {
   'article-20': 'Council debates Chamber contract, weighs economic vitality plan.jpg',
   'article-22': 'Los Altos priest advises Anthropic on AI ethics.jpg',
   'article-23': 'Former MVHS journalism teacher and students’ lawsuit vs. principal moves closer to trial.jpg',
-  'article-24': 'The Repair Café fixes all kinds of broken stuff.jpg',
+  'article-24': 'The Repair Café fixes all kinds of broken stuff.jpg',
   'article-27': 'article-27.png',
   'article-28': 'Los Altos first fully affordable housing development takes aim at carbon emissions.jpg',
   'article-29': 'Council debates allocation of supplemental funds CASSY funding halved.jpg'
