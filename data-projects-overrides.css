@@ -16,8 +16,8 @@
 }
 
 .project-card {
-  /* One shared canvas leaves room for the longest title and footer. */
-  height: 660px;
+  /* A compact shared canvas keeps the three-column layout balanced. */
+  height: 560px;
   min-width: 0;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .project-copy time {
-  margin: .85rem 0 0;
+  margin: auto 0 0;
 }
 
 .project-footer {
@@ -118,6 +118,6 @@
   }
 
   .project-copy time {
-    margin:.85rem 0 0;
+    margin:2rem 0 0;
   }
 }
