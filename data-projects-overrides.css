@@ -38,6 +38,7 @@
 
 .project-footer .project-credit {
   white-space: normal;
+  line-height: 1.45;
 }
 
 .project-description {
@@ -56,6 +57,7 @@
 .project-footer {
   min-height: 2.4rem;
   margin-top: .65rem;
+  align-items: flex-start;
 }
 
 @media (max-width: 760px) {

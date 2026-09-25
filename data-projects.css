@@ -13,7 +13,7 @@
 .project-image::after{content:"";position:absolute;left:14%;bottom:13%;width:48%;height:1px;background:var(--blue)}
 .project-image span{position:absolute;right:14%;bottom:11%;color:var(--blue);text-transform:uppercase;letter-spacing:.15em;font-size:7px}
 .project-copy{display:flex;flex:1;flex-direction:column;padding:2rem 2.1rem 1.75rem}
-.project-label{margin:0 0 1.3rem;color:var(--blue);text-transform:uppercase;letter-spacing:.13em;font-size:9px}
+.project-label{margin:0 0 1.3rem;color:var(--blue);text-transform:uppercase;letter-spacing:.13em;font-size:9px;line-height:1.35}
 .project-copy h2{max-width:720px;margin:0;color:var(--brown);font:clamp(27px,2.4vw,38px)/1.04 Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.025em}
 .project-copy time{display:block;margin:1.35rem 0 0;color:var(--brown);font:italic 16px/1.4 var(--serif)}
 .project-description{max-width:620px;margin:2rem 0;color:var(--ink);font:italic 17px/1.55 Georgia,"Times New Roman",serif;letter-spacing:.01em}
