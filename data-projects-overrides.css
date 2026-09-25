@@ -36,6 +36,10 @@
   white-space: nowrap;
 }
 
+.project-footer .project-credit {
+  white-space: normal;
+}
+
 .project-description {
   margin: 1.25rem 0 0;
   font-size: 15px;
