@@ -281,5 +281,18 @@ window.ARTICLES = [
       "Politics & Government"
     ],
     "favorite": true
+  },
+  {
+    "id": "article-30",
+    "title": "Anti-war exhibit comes to Allston, encourages action against the Iran war",
+    "date": "October 5, 2026",
+    "publication": "The Daily Free Press",
+    "url": "https://dailyfreepress.com/10/05/23/221230/anti-war-exhibit-comes-to-allston-encourages-action-against-the-iran-war/",
+    "storyType": "",
+    "beats": [
+      "Politics & Government",
+      "Community & Culture"
+    ],
+    "favorite": false
   }
 ];

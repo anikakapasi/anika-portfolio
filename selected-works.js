@@ -24,7 +24,8 @@ const articleImages = {
   'article-24': 'The Repair Café fixes all kinds of broken stuff.jpg',
   'article-27': 'article-27.png',
   'article-28': 'Los Altos first fully affordable housing development takes aim at carbon emissions.jpg',
-  'article-29': 'Council debates allocation of supplemental funds CASSY funding halved.jpg'
+  'article-29': 'Council debates allocation of supplemental funds CASSY funding halved.jpg',
+  'article-30': 'Anti-war exhibit comes to Allston, encourages action against the Iran war.jpg'
 };
 
 const normalize = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
