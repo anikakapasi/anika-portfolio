@@ -294,5 +294,17 @@ window.ARTICLES = [
       "Community & Culture"
     ],
     "favorite": false
+  },
+  {
+    "id": "article-31",
+    "title": "Outdated sexual misconduct data raises concerns about university transparency",
+    "date": "October 15, 2026",
+    "publication": "The Daily Free Press",
+    "url": "https://dailyfreepress.com/10/15/21/221526/outdated-sexual-misconduct-data-raises-concerns-about-university-transparency/",
+    "storyType": "Enterprise",
+    "beats": [
+      "Education"
+    ],
+    "favorite": true
   }
 ];

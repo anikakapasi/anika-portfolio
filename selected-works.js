@@ -25,7 +25,8 @@ const articleImages = {
   'article-27': 'article-27.png',
   'article-28': 'Los Altos first fully affordable housing development takes aim at carbon emissions.jpg',
   'article-29': 'Council debates allocation of supplemental funds CASSY funding halved.jpg',
-  'article-30': 'Anti-war exhibit comes to Allston, encourages action against the Iran war.jpg'
+  'article-30': 'Anti-war exhibit comes to Allston, encourages action against the Iran war.jpg',
+  'article-31': 'Outdated sexual misconduct data raises concerns about university transparency.png'
 };
 
 const normalize = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
