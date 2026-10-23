@@ -35,11 +35,9 @@ const aboutPhotos = [
     caption: 'Meeting Boston Mayor Michelle Wu at the first State of the Schools Address (Fall 2025)'
   },
   {
-    src: 'public/about-photo-13.png',
+    src: 'public/about-photo-08.png',
     alt: 'Personal photograph of Anika Kapasi',
-    caption: 'First front page story for the FreeP (Winter 2026)',
-    position: '50% 18%',
-    fit: 'cover'
+    caption: 'Spending two weeks at the California Scholastic Press Association workshop in high school learning strong journalistic practices (Summer 2024)'
   },
   {
     src: 'public/about-photo-14.jpg',
@@ -48,9 +46,11 @@ const aboutPhotos = [
     position: '75% 50%'
   },
   {
-    src: 'public/about-photo-08.png',
+    src: 'public/about-photo-13.png',
     alt: 'Personal photograph of Anika Kapasi',
-    caption: 'Spending two weeks at the California Scholastic Press Association workshop in high school learning strong journalistic practices (Summer 2024)'
+    caption: 'First front page story for the FreeP (Winter 2026)',
+    position: '50% 18%',
+    fit: 'cover'
   },
   {
     src: 'public/about-photo-09.png',
@@ -64,14 +64,14 @@ const aboutPhotos = [
     position: '25% 65%'
   },
   {
-    src: 'public/about-photo-04.png',
-    alt: 'Personal photograph of Anika Kapasi',
-    caption: 'First time covering a breaking news event (Fall 2025)'
-  },
-  {
     src: 'public/about-photo-12.jpg',
     alt: 'Personal photograph of Anika Kapasi',
     caption: 'One of my first print nights as a new staffer on my high school paper (Fall 2022)'
+  },
+  {
+    src: 'public/about-photo-04.png',
+    alt: 'Personal photograph of Anika Kapasi',
+    caption: 'First time covering a breaking news event (Fall 2025)'
   },
   {
     src: 'public/about-photo-06.png',
