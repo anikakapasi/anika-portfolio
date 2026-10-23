@@ -19,6 +19,12 @@ if (aboutSection) {
 
 const aboutPhotos = [
   {
+    src: 'public/about-photo-osint-2026.jpg',
+    alt: 'Anika Kapasi outside Wallis Annenberg Hall at the University of Southern California',
+    caption: 'Got flown out by BU to attend the 2026 OSINT conference at USC',
+    position: '50% 58%'
+  },
+  {
     src: 'public/about-photo-07.png',
     alt: 'Personal photograph of Anika Kapasi',
     caption: 'Last publication as Editor-in-Chief of my high school paper — senior magazine edition (Spring 2025)'
