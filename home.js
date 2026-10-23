@@ -78,7 +78,7 @@ const carousel = document.querySelector('.about-carousel');
 
 if (carousel) {
   const photo = carousel.querySelector('.carousel-photo');
-  const image = photo.querySelector('img');
+  let currentImage = photo.querySelector('img');
   const hoverCaption = photo.querySelector('figcaption');
   const touchCaption = carousel.querySelector('.carousel-touch-caption');
   const count = carousel.querySelector('.carousel-count');
@@ -86,33 +86,65 @@ if (carousel) {
   const next = carousel.querySelector('.carousel-next');
   let photoIndex = 0;
   let isTransitioning = false;
+  let pointerStart = null;
+
+  aboutPhotos.forEach(({ src }) => {
+    const preload = new Image();
+    preload.src = src;
+  });
+
+  const updateText = (index) => {
+    const item = aboutPhotos[index];
+    hoverCaption.textContent = item.caption;
+    touchCaption.textContent = item.caption;
+    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(aboutPhotos.length).padStart(2, '0')}`;
+  };
+
+  const applyImage = (element, item) => {
+    element.src = item.src;
+    element.alt = item.alt;
+    element.style.objectPosition = item.position || '';
+    element.style.setProperty('--photo-scale', item.scale || '1');
+    element.style.objectFit = item.fit || '';
+  };
+
+  const finishTransition = (outgoing, incoming) => {
+    outgoing.remove();
+    incoming.classList.remove('is-incoming', 'is-active');
+    incoming.classList.add('is-current');
+    currentImage = incoming;
+    isTransitioning = false;
+  };
 
   const renderPhoto = (index, animate = true, direction = 1) => {
     const item = aboutPhotos[index];
-    const update = () => {
-      image.src = item.src;
-      image.alt = item.alt;
-      image.style.objectPosition = item.position || '';
-      image.style.setProperty('--photo-scale', item.scale || '1');
-      image.style.objectFit = item.fit || '';
-      hoverCaption.textContent = item.caption;
-      touchCaption.textContent = item.caption;
-      count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(aboutPhotos.length).padStart(2, '0')}`;
-      photo.classList.remove('is-leaving');
-      photo.classList.add('is-entering');
-      window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
-        photo.classList.remove('is-entering');
-        isTransitioning = false;
-      }));
+    updateText(index);
+
+    if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      applyImage(currentImage, item);
+      return;
+    }
+
+    isTransitioning = true;
+    photo.style.setProperty('--carousel-direction', direction);
+    const incoming = document.createElement('img');
+    incoming.className = 'carousel-image is-incoming';
+    incoming.decoding = 'async';
+    applyImage(incoming, item);
+    photo.append(incoming);
+
+    const begin = () => {
+      currentImage.classList.remove('is-current');
+      currentImage.classList.add('is-outgoing');
+      window.requestAnimationFrame(() => incoming.classList.add('is-active'));
+      window.setTimeout(() => finishTransition(currentImage, incoming), 520);
     };
 
-    if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      isTransitioning = true;
-      photo.style.setProperty('--swipe-direction', direction);
-      photo.classList.add('is-leaving');
-      window.setTimeout(update, 300);
+    if (incoming.complete) {
+      begin();
     } else {
-      update();
+      incoming.addEventListener('load', begin, { once: true });
+      incoming.addEventListener('error', () => finishTransition(currentImage, incoming), { once: true });
     }
   };
 
@@ -124,7 +156,29 @@ if (carousel) {
 
   previous.addEventListener('click', () => movePhoto(-1));
   next.addEventListener('click', () => movePhoto(1));
+  photo.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      movePhoto(-1);
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      movePhoto(1);
+    }
+  });
+  photo.addEventListener('pointerdown', (event) => {
+    if (event.isPrimary) pointerStart = { x: event.clientX, y: event.clientY };
+  });
+  photo.addEventListener('pointerup', (event) => {
+    if (!pointerStart || !event.isPrimary) return;
+    const deltaX = event.clientX - pointerStart.x;
+    const deltaY = event.clientY - pointerStart.y;
+    pointerStart = null;
+    if (Math.abs(deltaX) > 38 && Math.abs(deltaX) > Math.abs(deltaY)) movePhoto(deltaX < 0 ? 1 : -1);
+  });
+  photo.addEventListener('pointercancel', () => { pointerStart = null; });
   previous.disabled = aboutPhotos.length < 2;
   next.disabled = aboutPhotos.length < 2;
+  currentImage.classList.add('carousel-image', 'is-current');
   renderPhoto(photoIndex, false);
 }
