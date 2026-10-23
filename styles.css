@@ -274,8 +274,6 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .about-carousel{grid-column:2;grid-row:1;position:relative;min-width:0;margin:1rem 0 0;padding:1.4rem 1.2rem 1rem 0}
 .carousel-art span{position:absolute;z-index:-1;display:block;pointer-events:none;transition:transform .4s var(--ease)}
 .carousel-blue{inset:8% -1.5rem 11% 12%;background:var(--pale)}
-.carousel-frame{inset:0 0 16% 7%;border:1px solid var(--brown)}
-.carousel-line{right:-2.5rem;bottom:9%;width:48%;height:2px;background:var(--brown)}
 .carousel-photo{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--cream);transform:rotate(-.35deg)}
 .carousel-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 65%;will-change:opacity,transform;transform:scale(var(--photo-scale,1));transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
 .carousel-photo figcaption{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:4rem 1.25rem 1.2rem;background:linear-gradient(transparent,rgba(23,37,58,.9));color:var(--white);font:italic 15px/1.45 Georgia,"Times New Roman",serif;opacity:0;transform:translateY(8px);transition:opacity .32s var(--ease),transform .32s var(--ease)}
@@ -303,7 +301,6 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   .carousel-photo{aspect-ratio:4/5}
   .carousel-photo figcaption{display:none}
   .carousel-touch-caption{display:block}
-  .carousel-line{right:-1rem}
 }
 
 /* Hero-scale About carousel */
